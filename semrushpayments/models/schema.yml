@@ -32,6 +32,15 @@ models:
         tests:
           - not_null
 
+  - name: int_dim_months
+    description: A dimension model containing a date series with the month starts between 2015 and 2018
+    columns:
+      - name: metric_month
+        description: The date of the first date in each month
+        tests:
+          - not_null
+          - unique
+
   - name: metric_mrr
     description: Metric model that indicates the monthly recurring revenue and number of monthly subscribers by country and subscription type
     columns:
