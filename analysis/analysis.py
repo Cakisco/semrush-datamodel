@@ -22,7 +22,7 @@ print('Periodised payments model')
 print(data_periodised.head())
 
 ## Periodised monthly payments ##
-data_periodised_monthly = con.execute("SELECT * FROM int_payments_periodised_monthly").fetchdf()
+data_periodised_monthly = con.execute("SELECT * FROM int_monthly_subs").fetchdf()
 print('Monthly periodised payments model')
 print(data_periodised_monthly.head())
 

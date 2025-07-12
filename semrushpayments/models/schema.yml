@@ -41,7 +41,7 @@ models:
           - not_null
           - unique
 
-  - name: int_payments_periodised_monthly
+  - name: int_monthly_subs
     description: Intermediate model that contains, for every month, each user/subscription that was active on that month, together with the periodised monthly revenue
 
   - name: metric_mrr
