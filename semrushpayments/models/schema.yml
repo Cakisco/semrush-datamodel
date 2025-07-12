@@ -1,6 +1,6 @@
 models:
   - name: stg_payments
-    description: Seed containing the source payment data
+    description: Staging model applying light transformations to source data
     columns:
       - name: payment_id
         description: A unique key identifying each payment
