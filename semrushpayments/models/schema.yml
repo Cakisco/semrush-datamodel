@@ -1,0 +1,21 @@
+models:
+  - name: stg_payments
+    description: Seed containing the source payment data
+    columns:
+      - name: payment_id
+        description: A unique key identifying each payment
+        tests:
+          - unique
+          - not_null
+      - name: transactionTime
+        description: The timestamp for when the payment was completed
+        tests:
+          - not_null
+      - name: transactionMonth
+        description: The month on which the payment was completed, represented by the first day of the month
+        tests:
+          - not_null
+      - name: payment_rank
+        description: For each customer, this describes the ordered rank that this payment represents
+        tests:
+          - not_null
