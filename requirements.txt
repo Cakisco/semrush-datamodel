@@ -2,3 +2,4 @@ dbt-core
 dbt-duckdb
 duckdb
 pandas
+seaborn
