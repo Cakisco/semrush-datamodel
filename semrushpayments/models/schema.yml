@@ -40,6 +40,13 @@ models:
         tests:
           - not_null
           - unique
+      - name: amount_periodised
+        description: The monthly equivalent amount that a payment contributes to MRR
+        tests:
+          - not_null
+
+  - name: int_payments_periodised_monthly
+    description: Intermediate model that contains, for every month, each user/subscription that was active on that month, together with the periodised monthly revenue
 
   - name: metric_mrr
     description: Metric model that indicates the monthly recurring revenue and number of monthly subscribers by country and subscription type
