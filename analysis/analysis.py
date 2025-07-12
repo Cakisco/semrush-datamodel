@@ -21,6 +21,12 @@ data_periodised = con.execute("SELECT * FROM int_payments_periodised").fetchdf()
 print('Periodised payments model')
 print(data_periodised.head())
 
+## Periodised monthly payments ##
+data_periodised_monthly = con.execute("SELECT * FROM int_payments_periodised_monthly").fetchdf()
+print('Monthly periodised payments model')
+print(data_periodised_monthly.head())
+
+
 ## MRR ##
 data_mrr = con.execute("SELECT * FROM metric_mrr").fetchdf()
 data_mrr.to_csv('./datasets/mrr.csv', index=False)
