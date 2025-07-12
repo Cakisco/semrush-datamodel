@@ -1,0 +1,38 @@
+version: 2
+
+models:
+  - name: src_payments
+    description: Seed containing the source payment data
+    columns: 
+      - name: userID
+        description: The unique ID of the user making the payment
+        tests:
+          - not_null
+      - name: billingCountry
+        description: The country of the user making the payment
+        tests:
+          - not_null
+      - name: transactionTime
+        description: The Unix timestamp for when the payment was completed
+        tests:
+          - not_null 
+      - name: product
+        description: The subscription tier that was purchased or renewed by the payment
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['PRO', 'GURU', 'BUSINESS']
+      - name: price
+        description: The price of the product per month
+        tests:
+          - not_null
+      - name: amount
+        description: The actual amount paid by the customer. 12-months subscription incur a discount
+        tests:
+          - not_null      
+      - name: period
+        description: The duration, in months, of the subscription that the user paid for
+        tests:
+          - not_null
+          - accepted_values:
+              values: [1,12]  
