@@ -19,3 +19,19 @@ models:
         description: For each customer, this describes the ordered rank that this payment represents
         tests:
           - not_null
+
+  - name: int_payments_periodised
+    description: Intermediate model that splits payment data evenly across months
+    columns:
+      - name: active_from
+        description: The first month on which the payment contributes to MRR
+        tests:
+          - not_null
+      - name: active_to
+        description: The last month on which the payment contributes to MRR
+        tests:
+          - not_null
+      - name: amount_periodised
+        description: The monthly equivalent amount that a payment contributes to MRR
+        tests:
+          - not_null

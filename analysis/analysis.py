@@ -11,3 +11,8 @@ print(data_source.head())
 data_staging = con.execute("SELECT * FROM stg_payments").fetchdf()
 print('Staging model')
 print(data_staging.head())
+
+#Periodised payments
+data_periodised = con.execute("SELECT * FROM int_payments_periodised").fetchdf()
+print('Periodised payments model')
+print(data_periodised.head(10))
