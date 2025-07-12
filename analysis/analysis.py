@@ -22,9 +22,14 @@ print('Periodised payments model')
 print(data_periodised.head())
 
 ## Periodised monthly payments ##
-data_periodised_monthly = con.execute("SELECT * FROM int_monthly_subs").fetchdf()
-print('Monthly periodised payments model')
-print(data_periodised_monthly.head())
+data_monthly_subs = con.execute("SELECT * FROM int_monthly_subs").fetchdf()
+print('Monthly subs models')
+print(data_monthly_subs.head())
+
+## Periodised monthly payments with lead and lag payments##
+data_monthly_subs_leadlag = con.execute("SELECT * FROM int_monthly_subs_leadlag").fetchdf()
+print('Monthly subs models with lead and lag')
+print(data_monthly_subs_leadlag.head())
 
 
 ## MRR ##

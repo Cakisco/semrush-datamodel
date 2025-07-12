@@ -44,6 +44,19 @@ models:
   - name: int_monthly_subs
     description: Intermediate model that contains, for every month, each user/subscription that was active on that month, together with the periodised monthly revenue
 
+  - name: int_monthly_subs_leadlag
+    description: This model elaborates on int_monthly_subs by including information about the each customer's subscription in the month before and after the current period.
+    columns:
+      - name: product_lead
+        description: The product that the user was subscribed to on the month before the current period
+      - name: amount_periodised_lead
+        description: The monthly equivalent amount that a payment contributed to MRR on the month before the current period
+      - name: product_lag
+        description: The product that the user was subscribed to on the month after the current period
+      - name: amount_periodised_lag
+        description: The monthly equivalent amount that a payment contributed to MRR on the month after the current period
+
+
   - name: metric_mrr
     description: Metric model that indicates the monthly recurring revenue and number of monthly subscribers by country and subscription type
     columns:
