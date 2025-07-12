@@ -1,6 +1,6 @@
 version: 2
 
-models:
+seeds:
   - name: src_payments
     description: Seed containing the source payment data
     columns: 
