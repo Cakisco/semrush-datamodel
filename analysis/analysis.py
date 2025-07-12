@@ -99,6 +99,7 @@ plt.tight_layout()
 plt.savefig('./images/churn.png')
 
 ## Acquisitions ##
+data_acquired = data_acquired.groupby(['metric_month'])[['customers_acquired','cancelled_customers','customer_base']].sum().reset_index()
 #Plotting
 fig, ax = plt.subplots(figsize=[14,6])
 sns.lineplot(data=data_acquired, x='metric_month', y='customers_acquired', ax=ax, color="#005b00", linewidth=2, label='Customers acquired')
