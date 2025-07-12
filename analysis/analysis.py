@@ -46,6 +46,12 @@ data_churn.to_csv('./datasets/churn.csv', index=False)
 print('Churn model')
 print(data_churn.head())
 
+## Acquisitions ##
+data_acquired = con.execute("SELECT * FROM metric_acquisitions").fetchdf()
+data_acquired.to_csv('./datasets/acquisitions.csv', index=False)
+print('Acquisitions')
+print(data_acquired.head())
+
 
 
 ### 2. Metric visualisations ###
@@ -91,3 +97,16 @@ plt.suptitle('Monthly churn rates',fontsize=15)
 
 plt.tight_layout()
 plt.savefig('./images/churn.png')
+
+## Acquisitions ##
+#Plotting
+fig, ax = plt.subplots(figsize=[14,6])
+sns.lineplot(data=data_acquired, x='metric_month', y='customers_acquired', ax=ax, color="#005b00", linewidth=2, label='Customers acquired')
+sns.lineplot(data=data_acquired, x='metric_month', y='cancelled_customers', ax=ax, color="#7a0000", linewidth=2, label='Customers cancelled')
+#Formatting
+ax.set_xlabel('')
+ax.set_ylabel('Number of customers')
+ax.set_title('Monthly customer acquisitions and cancellations')
+
+plt.tight_layout()
+plt.savefig('./images/acquisitions.png')

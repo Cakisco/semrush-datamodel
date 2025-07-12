@@ -112,3 +112,15 @@ models:
         description: The total number of subscribed users retained from existing customers, calculated as the number of subscribed users that were also active on the previous month
         tests:
           - not_null
+
+  - name: metric_acquisitions
+    description: Metric model that calculates the monthly number of newly acquired customers, and compares it with the customer base size and cancellations
+    columns:
+      - name: customers_acquired
+        description: The number of customers that were subscribed in a month, which were not subscribed on the previous month
+        tests:
+          - not_null
+      - name: cancelled_customers
+        description: The number of subscribers that were subscribed on the previous month but are no longer subscribed
+      - name: customer_base
+        description: The total number of subscribers on the previous month
