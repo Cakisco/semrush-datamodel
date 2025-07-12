@@ -35,3 +35,27 @@ models:
         description: The monthly equivalent amount that a payment contributes to MRR
         tests:
           - not_null
+
+  - name: metric_mrr
+    description: Metric model that indicates the monthly recurring revenue and number of monthly subscribers by country and subscription type
+    columns:
+      - name: metric_month
+        description: The month for which MRR is being calculated
+        tests:
+          - not_null
+      - name: billingCountry
+        description: A dimension segmenting the metric across countries
+        tests:
+          - not_null
+      - name: product
+        description: A dimension segmenting the metric across subscription products
+        tests:
+          - not_null
+      - name: active_subscribers
+        description: The number of users with a subscription active on a particular month
+        tests:
+          - not_null
+      - name: mrr
+        description: The monthly equivalent revenue (MRR) from subscriptions active on a given month
+        tests:
+          - not_null
