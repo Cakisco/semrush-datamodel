@@ -69,6 +69,7 @@ plt.tight_layout()
 plt.savefig('./images/mrr.png')
 
 ## Churn ##
+data_churn = data_churn.groupby(['churn_month'])[['starting_revenue','starting_customers','retained_revenue','retained_customers']].sum().reset_index()
 data_churn['value_retention']=data_churn['retained_revenue']/data_churn['starting_revenue']
 data_churn['volume_retention']=data_churn['retained_customers']/data_churn['starting_customers']
 data_churn['value_churn'] = 1 - data_churn['value_retention']

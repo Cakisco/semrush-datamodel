@@ -88,6 +88,14 @@ models:
         description: The month for which churn rates are being calculated
         tests:
           - not_null
+      - name: product
+        description: A dimension to enable calculating churn rates separately by subscription product
+        tests:
+          - not_null
+      - name: billingCountry
+        description: A dimension to enable calculating churn rates separately by country
+        tests:
+          - not_null
       - name: starting_revenue
         description: The total MRR at the beginning of the month, calculated as total MRR from the previous month
         tests:
