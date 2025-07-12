@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 from matplotlib.ticker import PercentFormatter
+import matplotlib.dates as mdates
 con = duckdb.connect("../semrushpayments/semrushpayments.duckdb")
 
 ### 1. Importing and exploring models ###
@@ -80,6 +81,7 @@ data_churn['value_retention']=data_churn['retained_revenue']/data_churn['startin
 data_churn['volume_retention']=data_churn['retained_customers']/data_churn['starting_customers']
 data_churn['value_churn'] = 1 - data_churn['value_retention']
 data_churn['volume_churn'] = 1 - data_churn['volume_retention']
+data_churn['churn_month']=pd.to_datetime(data_churn['churn_month'])
 #Plotting
 fig, ax = plt.subplots(figsize=[14,6], ncols=2, nrows=1, sharey=True)
 sns.lineplot(data=data_churn, x='churn_month', y='value_churn', ax=ax[0], color='#ff622d', linewidth=2)
@@ -88,7 +90,9 @@ sns.lineplot(data=data_churn, x='churn_month', y='volume_churn', ax=ax[1], color
 for a in ax:
     a.set_xlabel('')
     a.yaxis.set_major_formatter(PercentFormatter(1, decimals=0))
+    a.tick_params(axis='x', labelrotation=30)
     a.yaxis.grid(True)
+    a.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
 ax[0].set_ylabel('Churn rate')
 ax[0].set_title('Value Churn')
 ax[1].set_title('Volume Churn')
@@ -100,6 +104,7 @@ plt.savefig('./images/churn.png')
 
 ## Acquisitions ##
 data_acquired = data_acquired.groupby(['metric_month'])[['customers_acquired','cancelled_customers','customer_base']].sum().reset_index()
+data_acquired['metric_month']=pd.to_datetime(data_acquired['metric_month'])
 #Plotting
 fig, ax = plt.subplots(figsize=[14,6])
 sns.lineplot(data=data_acquired, x='metric_month', y='customers_acquired', ax=ax, color="#005b00", linewidth=2, label='Customers acquired')
@@ -108,6 +113,7 @@ sns.lineplot(data=data_acquired, x='metric_month', y='cancelled_customers', ax=a
 ax.set_xlabel('')
 ax.set_ylabel('Number of customers')
 ax.set_title('Monthly customer acquisitions and cancellations')
+ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
 
 plt.tight_layout()
 plt.savefig('./images/acquisitions.png')
