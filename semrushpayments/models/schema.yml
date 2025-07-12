@@ -80,3 +80,27 @@ models:
         description: The monthly equivalent revenue (MRR) from subscriptions active on a given month
         tests:
           - not_null
+
+  - name: metric_churn
+    description: Metric model that calculates the subscriber base (value/volume) at the beginning of each month, and how much subscriber base (value/volume) was retained during the month. These metrics can be used to calculate churn rates.
+    columns:
+      - name: churn_month
+        description: The month for which churn rates are being calculated
+        tests:
+          - not_null
+      - name: starting_revenue
+        description: The total MRR at the beginning of the month, calculated as total MRR from the previous month
+        tests:
+          - not_null
+      - name: starting_customers
+        description: The total number of subscribed users at the beginning of the month, calculated as total number of subscribed users from the previous month
+        tests:
+          - not_null
+      - name: retained_revenue
+        description: The total MRR retained from existing customers, calculated as MRR from customers also active on the previous month
+        tests:
+          - not_null
+      - name: retained_customers
+        description: The total number of subscribed users retained from existing customers, calculated as the number of subscribed users that were also active on the previous month
+        tests:
+          - not_null
