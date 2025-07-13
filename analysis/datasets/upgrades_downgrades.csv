@@ -1,67 +1,280 @@
-metric_month,product_outcome,no_customers
-2015-02-01,Upgrade,1
-2015-03-01,Upgrade,1
-2015-04-01,Downgrade,1
-2015-04-01,Upgrade,4
-2015-05-01,Downgrade,4
-2015-05-01,Upgrade,2
-2015-06-01,Downgrade,9
-2015-06-01,Upgrade,2
-2015-07-01,Downgrade,4
-2015-07-01,Upgrade,2
-2015-08-01,Downgrade,3
-2015-08-01,Upgrade,5
-2015-09-01,Downgrade,5
-2015-09-01,Upgrade,8
-2015-10-01,Downgrade,7
-2015-10-01,Upgrade,9
-2015-11-01,Downgrade,9
-2015-11-01,Upgrade,9
-2015-12-01,Downgrade,13
-2015-12-01,Upgrade,11
-2016-01-01,Downgrade,11
-2016-01-01,Upgrade,13
-2016-02-01,Downgrade,14
-2016-02-01,Upgrade,14
-2016-03-01,Downgrade,14
-2016-03-01,Upgrade,21
-2016-04-01,Downgrade,28
-2016-04-01,Upgrade,22
-2016-05-01,Downgrade,25
-2016-05-01,Upgrade,22
-2016-06-01,Downgrade,26
-2016-06-01,Upgrade,19
-2016-07-01,Downgrade,27
-2016-07-01,Upgrade,24
-2016-08-01,Downgrade,37
-2016-08-01,Upgrade,28
-2016-09-01,Downgrade,29
-2016-09-01,Upgrade,39
-2016-10-01,Downgrade,34
-2016-10-01,Upgrade,51
-2016-11-01,Downgrade,33
-2016-11-01,Upgrade,73
-2016-12-01,Downgrade,36
-2016-12-01,Upgrade,76
-2017-01-01,Downgrade,21
-2017-01-01,Upgrade,75
-2017-02-01,Downgrade,44
-2017-02-01,Upgrade,49
-2017-03-01,Downgrade,55
-2017-03-01,Upgrade,63
-2017-04-01,Downgrade,48
-2017-04-01,Upgrade,45
-2017-05-01,Downgrade,56
-2017-05-01,Upgrade,56
-2017-06-01,Downgrade,55
-2017-06-01,Upgrade,74
-2017-07-01,Downgrade,60
-2017-07-01,Upgrade,66
-2017-08-01,Downgrade,56
-2017-08-01,Upgrade,60
-2017-09-01,Downgrade,61
-2017-09-01,Upgrade,77
-2017-10-01,Downgrade,60
-2017-10-01,Upgrade,49
-2017-11-01,Downgrade,31
-2017-11-01,Upgrade,46
+metric_month,billingCountry,product_outcome,no_customers
+2015-02-01,United Kingdom,Upgrade,1
+2015-03-01,United Kingdom,Upgrade,1
+2015-04-01,United Kingdom,Downgrade,1
+2015-04-01,Canada,Upgrade,1
+2015-04-01,India,Upgrade,2
+2015-04-01,United Kingdom,Upgrade,1
+2015-05-01,France,Downgrade,1
+2015-05-01,United Kingdom,Downgrade,1
+2015-05-01,United States,Downgrade,2
+2015-05-01,United States,Upgrade,2
+2015-06-01,Canada,Downgrade,3
+2015-06-01,France,Downgrade,1
+2015-06-01,India,Downgrade,1
+2015-06-01,United Kingdom,Downgrade,3
+2015-06-01,United States,Downgrade,1
+2015-06-01,Canada,Upgrade,1
+2015-06-01,United States,Upgrade,1
+2015-07-01,India,Downgrade,2
+2015-07-01,United Kingdom,Downgrade,2
+2015-07-01,United Kingdom,Upgrade,1
+2015-07-01,United States,Upgrade,1
+2015-08-01,United States,Downgrade,3
+2015-08-01,India,Upgrade,1
+2015-08-01,United Kingdom,Upgrade,3
+2015-08-01,United States,Upgrade,1
+2015-09-01,India,Downgrade,2
+2015-09-01,United Kingdom,Downgrade,2
+2015-09-01,United States,Downgrade,1
+2015-09-01,Canada,Upgrade,2
+2015-09-01,France,Upgrade,1
+2015-09-01,India,Upgrade,1
+2015-09-01,United States,Upgrade,4
+2015-10-01,Canada,Downgrade,2
+2015-10-01,India,Downgrade,1
+2015-10-01,United States,Downgrade,4
+2015-10-01,Canada,Upgrade,2
+2015-10-01,India,Upgrade,2
+2015-10-01,United Kingdom,Upgrade,3
+2015-10-01,United States,Upgrade,2
+2015-11-01,Canada,Downgrade,2
+2015-11-01,India,Downgrade,1
+2015-11-01,United Kingdom,Downgrade,1
+2015-11-01,United States,Downgrade,5
+2015-11-01,Canada,Upgrade,1
+2015-11-01,United Kingdom,Upgrade,5
+2015-11-01,United States,Upgrade,3
+2015-12-01,France,Downgrade,3
+2015-12-01,India,Downgrade,3
+2015-12-01,United Kingdom,Downgrade,4
+2015-12-01,United States,Downgrade,3
+2015-12-01,France,Upgrade,1
+2015-12-01,India,Upgrade,3
+2015-12-01,United Kingdom,Upgrade,3
+2015-12-01,United States,Upgrade,4
+2016-01-01,Canada,Downgrade,2
+2016-01-01,France,Downgrade,1
+2016-01-01,India,Downgrade,3
+2016-01-01,United Kingdom,Downgrade,1
+2016-01-01,United States,Downgrade,4
+2016-01-01,Canada,Upgrade,2
+2016-01-01,France,Upgrade,1
+2016-01-01,India,Upgrade,3
+2016-01-01,United Kingdom,Upgrade,4
+2016-01-01,United States,Upgrade,3
+2016-02-01,Canada,Downgrade,1
+2016-02-01,India,Downgrade,6
+2016-02-01,United Kingdom,Downgrade,6
+2016-02-01,United States,Downgrade,1
+2016-02-01,Canada,Upgrade,3
+2016-02-01,India,Upgrade,2
+2016-02-01,United Kingdom,Upgrade,5
+2016-02-01,United States,Upgrade,4
+2016-03-01,Canada,Downgrade,2
+2016-03-01,India,Downgrade,2
+2016-03-01,United Kingdom,Downgrade,6
+2016-03-01,United States,Downgrade,4
+2016-03-01,Canada,Upgrade,1
+2016-03-01,France,Upgrade,1
+2016-03-01,India,Upgrade,5
+2016-03-01,United Kingdom,Upgrade,7
+2016-03-01,United States,Upgrade,7
+2016-04-01,Canada,Downgrade,2
+2016-04-01,France,Downgrade,3
+2016-04-01,India,Downgrade,4
+2016-04-01,United Kingdom,Downgrade,12
+2016-04-01,United States,Downgrade,7
+2016-04-01,Canada,Upgrade,1
+2016-04-01,France,Upgrade,3
+2016-04-01,India,Upgrade,5
+2016-04-01,United Kingdom,Upgrade,7
+2016-04-01,United States,Upgrade,6
+2016-05-01,Canada,Downgrade,1
+2016-05-01,France,Downgrade,2
+2016-05-01,India,Downgrade,8
+2016-05-01,United Kingdom,Downgrade,7
+2016-05-01,United States,Downgrade,7
+2016-05-01,Canada,Upgrade,2
+2016-05-01,India,Upgrade,4
+2016-05-01,United Kingdom,Upgrade,6
+2016-05-01,United States,Upgrade,10
+2016-06-01,Canada,Downgrade,3
+2016-06-01,France,Downgrade,3
+2016-06-01,India,Downgrade,7
+2016-06-01,United Kingdom,Downgrade,5
+2016-06-01,United States,Downgrade,8
+2016-06-01,Canada,Upgrade,1
+2016-06-01,France,Upgrade,2
+2016-06-01,India,Upgrade,5
+2016-06-01,United Kingdom,Upgrade,6
+2016-06-01,United States,Upgrade,5
+2016-07-01,Canada,Downgrade,2
+2016-07-01,France,Downgrade,1
+2016-07-01,India,Downgrade,5
+2016-07-01,United Kingdom,Downgrade,15
+2016-07-01,United States,Downgrade,4
+2016-07-01,Canada,Upgrade,1
+2016-07-01,France,Upgrade,1
+2016-07-01,India,Upgrade,7
+2016-07-01,United Kingdom,Upgrade,6
+2016-07-01,United States,Upgrade,9
+2016-08-01,Canada,Downgrade,3
+2016-08-01,France,Downgrade,4
+2016-08-01,India,Downgrade,7
+2016-08-01,United Kingdom,Downgrade,11
+2016-08-01,United States,Downgrade,12
+2016-08-01,Canada,Upgrade,3
+2016-08-01,France,Upgrade,5
+2016-08-01,India,Upgrade,6
+2016-08-01,United Kingdom,Upgrade,6
+2016-08-01,United States,Upgrade,8
+2016-09-01,Canada,Downgrade,4
+2016-09-01,France,Downgrade,1
+2016-09-01,India,Downgrade,4
+2016-09-01,United Kingdom,Downgrade,11
+2016-09-01,United States,Downgrade,9
+2016-09-01,Canada,Upgrade,4
+2016-09-01,France,Upgrade,4
+2016-09-01,India,Upgrade,12
+2016-09-01,United Kingdom,Upgrade,11
+2016-09-01,United States,Upgrade,8
+2016-10-01,Canada,Downgrade,3
+2016-10-01,France,Downgrade,3
+2016-10-01,India,Downgrade,9
+2016-10-01,United Kingdom,Downgrade,10
+2016-10-01,United States,Downgrade,9
+2016-10-01,Canada,Upgrade,1
+2016-10-01,France,Upgrade,3
+2016-10-01,India,Upgrade,15
+2016-10-01,United Kingdom,Upgrade,14
+2016-10-01,United States,Upgrade,18
+2016-11-01,Canada,Downgrade,1
+2016-11-01,France,Downgrade,2
+2016-11-01,India,Downgrade,8
+2016-11-01,United Kingdom,Downgrade,8
+2016-11-01,United States,Downgrade,14
+2016-11-01,Canada,Upgrade,7
+2016-11-01,France,Upgrade,11
+2016-11-01,India,Upgrade,13
+2016-11-01,United Kingdom,Upgrade,20
+2016-11-01,United States,Upgrade,22
+2016-12-01,Canada,Downgrade,1
+2016-12-01,France,Downgrade,3
+2016-12-01,India,Downgrade,7
+2016-12-01,United Kingdom,Downgrade,13
+2016-12-01,United States,Downgrade,12
+2016-12-01,Canada,Upgrade,17
+2016-12-01,France,Upgrade,3
+2016-12-01,India,Upgrade,12
+2016-12-01,United Kingdom,Upgrade,19
+2016-12-01,United States,Upgrade,25
+2017-01-01,France,Downgrade,2
+2017-01-01,India,Downgrade,3
+2017-01-01,United Kingdom,Downgrade,5
+2017-01-01,United States,Downgrade,11
+2017-01-01,Canada,Upgrade,6
+2017-01-01,France,Upgrade,8
+2017-01-01,India,Upgrade,15
+2017-01-01,United Kingdom,Upgrade,24
+2017-01-01,United States,Upgrade,22
+2017-02-01,Canada,Downgrade,6
+2017-02-01,France,Downgrade,8
+2017-02-01,India,Downgrade,4
+2017-02-01,United Kingdom,Downgrade,8
+2017-02-01,United States,Downgrade,18
+2017-02-01,Canada,Upgrade,2
+2017-02-01,France,Upgrade,5
+2017-02-01,India,Upgrade,7
+2017-02-01,United Kingdom,Upgrade,18
+2017-02-01,United States,Upgrade,17
+2017-03-01,Canada,Downgrade,6
+2017-03-01,France,Downgrade,4
+2017-03-01,India,Downgrade,12
+2017-03-01,United Kingdom,Downgrade,14
+2017-03-01,United States,Downgrade,19
+2017-03-01,Canada,Upgrade,3
+2017-03-01,France,Upgrade,12
+2017-03-01,India,Upgrade,14
+2017-03-01,United Kingdom,Upgrade,19
+2017-03-01,United States,Upgrade,15
+2017-04-01,Canada,Downgrade,6
+2017-04-01,France,Downgrade,6
+2017-04-01,India,Downgrade,10
+2017-04-01,United Kingdom,Downgrade,11
+2017-04-01,United States,Downgrade,15
+2017-04-01,Canada,Upgrade,8
+2017-04-01,France,Upgrade,8
+2017-04-01,India,Upgrade,5
+2017-04-01,United Kingdom,Upgrade,10
+2017-04-01,United States,Upgrade,14
+2017-05-01,Canada,Downgrade,9
+2017-05-01,France,Downgrade,10
+2017-05-01,India,Downgrade,11
+2017-05-01,United Kingdom,Downgrade,10
+2017-05-01,United States,Downgrade,16
+2017-05-01,Canada,Upgrade,9
+2017-05-01,France,Upgrade,12
+2017-05-01,India,Upgrade,11
+2017-05-01,United Kingdom,Upgrade,17
+2017-05-01,United States,Upgrade,7
+2017-06-01,Canada,Downgrade,8
+2017-06-01,France,Downgrade,13
+2017-06-01,India,Downgrade,6
+2017-06-01,United Kingdom,Downgrade,13
+2017-06-01,United States,Downgrade,15
+2017-06-01,Canada,Upgrade,11
+2017-06-01,France,Upgrade,19
+2017-06-01,India,Upgrade,8
+2017-06-01,United Kingdom,Upgrade,14
+2017-06-01,United States,Upgrade,22
+2017-07-01,Canada,Downgrade,7
+2017-07-01,France,Downgrade,9
+2017-07-01,India,Downgrade,12
+2017-07-01,United Kingdom,Downgrade,21
+2017-07-01,United States,Downgrade,11
+2017-07-01,Canada,Upgrade,8
+2017-07-01,France,Upgrade,18
+2017-07-01,India,Upgrade,11
+2017-07-01,United Kingdom,Upgrade,20
+2017-07-01,United States,Upgrade,9
+2017-08-01,Canada,Downgrade,5
+2017-08-01,France,Downgrade,13
+2017-08-01,India,Downgrade,5
+2017-08-01,United Kingdom,Downgrade,19
+2017-08-01,United States,Downgrade,14
+2017-08-01,Canada,Upgrade,14
+2017-08-01,France,Upgrade,12
+2017-08-01,India,Upgrade,7
+2017-08-01,United Kingdom,Upgrade,6
+2017-08-01,United States,Upgrade,21
+2017-09-01,Canada,Downgrade,8
+2017-09-01,France,Downgrade,12
+2017-09-01,India,Downgrade,5
+2017-09-01,United Kingdom,Downgrade,20
+2017-09-01,United States,Downgrade,16
+2017-09-01,Canada,Upgrade,9
+2017-09-01,France,Upgrade,20
+2017-09-01,India,Upgrade,15
+2017-09-01,United Kingdom,Upgrade,21
+2017-09-01,United States,Upgrade,12
+2017-10-01,Canada,Downgrade,5
+2017-10-01,France,Downgrade,14
+2017-10-01,India,Downgrade,13
+2017-10-01,United Kingdom,Downgrade,15
+2017-10-01,United States,Downgrade,13
+2017-10-01,Canada,Upgrade,5
+2017-10-01,France,Upgrade,11
+2017-10-01,India,Upgrade,5
+2017-10-01,United Kingdom,Upgrade,14
+2017-10-01,United States,Upgrade,14
+2017-11-01,Canada,Downgrade,6
+2017-11-01,France,Downgrade,7
+2017-11-01,India,Downgrade,7
+2017-11-01,United Kingdom,Downgrade,5
+2017-11-01,United States,Downgrade,6
+2017-11-01,Canada,Upgrade,8
+2017-11-01,France,Upgrade,12
+2017-11-01,India,Upgrade,6
+2017-11-01,United Kingdom,Upgrade,8
+2017-11-01,United States,Upgrade,12

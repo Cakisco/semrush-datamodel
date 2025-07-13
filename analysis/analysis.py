@@ -159,6 +159,7 @@ ax[0].yaxis.set_major_formatter(PercentFormatter(1, decimals=0))
 ax[0].set_title('Distribution of monthly subscribers by product and ARPPU')
 
 # Subs products #
+data_upgrades_downgrades = data_upgrades_downgrades.groupby(['metric_month','product_outcome'])[['no_customers']].sum().reset_index()
 data_upgrades_downgrades['metric_month']=pd.to_datetime(data_upgrades_downgrades['metric_month']).dt.strftime('%b %Y')
 sns.barplot(data=data_upgrades_downgrades, x='metric_month', y='no_customers', hue='product_outcome', estimator='sum', ax=ax[1], palette=["green", "red"])
 #Formatting

@@ -16,8 +16,9 @@ WITH product_changes AS (--Customers who changed their subscription product from
     AND s.product_lead != s.product
 )
 SELECT pc.metric_month,
+pc.billingCountry,
 pc.product_outcome,
 COUNT(DISTINCT(pc.userId)) AS no_customers
 FROM product_changes pc
-GROUP BY pc.metric_month, pc.product_outcome
-ORDER BY pc.metric_month, pc.product_outcome
+GROUP BY pc.metric_month, pc.product_outcome, pc.billingCountry
+ORDER BY pc.metric_month, pc.product_outcome, pc.billingCountry
