@@ -126,12 +126,12 @@ plt.savefig('./images/acquisitions.png')
 
 
 ## Subscription products ##
+data_monthly_subs = data_monthly_subs.groupby(['metric_month','product'])[['no_customers','mrr']].sum().reset_index()
 data_monthly_subs['metric_month']=pd.to_datetime(data_monthly_subs['metric_month'])
 data_product_proportions = data_monthly_subs.pivot_table(index='metric_month', columns='product', values='no_customers')
 data_product_proportions_norm = data_product_proportions.div(data_product_proportions .sum(axis=1), axis=0)
 data_arppu=data_monthly_subs.groupby(['metric_month'])[['no_customers','mrr']].sum()
 data_arppu['arppu']=data_arppu['mrr']/data_arppu['no_customers']
-print(data_arppu)
 #Plotting
 fig, ax = plt.subplots(figsize=[14,6], ncols=2, nrows=1, sharey=True)
 ax[0].stackplot(
