@@ -53,6 +53,12 @@ data_acquired.to_csv('./datasets/acquisitions.csv', index=False)
 print('Acquisitions')
 print(data_acquired.head())
 
+## Subscription products ##
+data_monthly_subs = con.execute("SELECT * FROM metric_monthly_subs").fetchdf()
+data_monthly_subs.to_csv('./datasets/monthly_subs.csv', index=False)
+print('Monthly subs')
+print(data_monthly_subs.head())
+
 
 
 ### 2. Metric visualisations ###
@@ -117,3 +123,32 @@ ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
 
 plt.tight_layout()
 plt.savefig('./images/acquisitions.png')
+
+
+## Subscription products ##
+data_monthly_subs['metric_month']=pd.to_datetime(data_monthly_subs['metric_month'])
+data_product_proportions = data_monthly_subs.pivot_table(index='metric_month', columns='product', values='no_customers')
+data_product_proportions_norm = data_product_proportions.div(data_product_proportions .sum(axis=1), axis=0)
+data_arppu=data_monthly_subs.groupby(['metric_month'])[['no_customers','mrr']].sum()
+data_arppu['arppu']=data_arppu['mrr']/data_arppu['no_customers']
+print(data_arppu)
+#Plotting
+fig, ax = plt.subplots(figsize=[14,6], ncols=2, nrows=1, sharey=True)
+ax[0].stackplot(
+    data_product_proportions_norm.index,
+    [data_product_proportions_norm[col] for col in data_product_proportions_norm.columns],
+    labels=data_product_proportions_norm.columns,
+    alpha=0.8
+)
+ax_twin=ax[0].twinx()
+ax_twin.plot(data_arppu.index, data_arppu['arppu'],color='red')
+ax_twin.set_ylabel('ARPPU')
+ax_twin.set_ylim(bottom=100, top=200)
+#Formatting
+ax[0].legend(loc='upper left')
+ax[0].xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
+ax[0].tick_params(axis='x', labelrotation=30)
+ax[0].yaxis.set_major_formatter(PercentFormatter(1, decimals=0))
+ax[0].set_title('Distribution of monthly subscribers by product and ARPPU')
+plt.tight_layout()
+plt.savefig('./images/products.png')

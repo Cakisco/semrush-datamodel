@@ -124,3 +124,11 @@ models:
         description: The number of subscribers that were subscribed on the previous month but are no longer subscribed
       - name: customer_base
         description: The total number of subscribers on the previous month
+
+  - name: metric_monthly_subs
+    description: Metric model that aggregates monthly subscribers and calculated the monthly number of subscribers and revenue for each product and country
+    columns:
+      - name: no_customers
+        description: The number of customers that were subscribed in a month for a given product and country
+      - name: mrr
+        description: The total periodised revenue in a month for a given product and country        
