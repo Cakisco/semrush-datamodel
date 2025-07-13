@@ -6,40 +6,12 @@ from matplotlib.ticker import PercentFormatter
 import matplotlib.dates as mdates
 con = duckdb.connect("../semrushpayments/semrushpayments.duckdb")
 
-### 1. Importing and exploring models ###
-
-## Source data ##
-data_source = con.execute("SELECT * FROM src_payments").fetchdf()
-print('Source model')
-print(data_source.head())
-
-## Staging model ##
-data_staging = con.execute("SELECT * FROM stg_payments").fetchdf()
-print('Staging model')
-print(data_staging.head())
-
-## Periodised payments ##
-data_periodised = con.execute("SELECT * FROM int_payments_periodised").fetchdf()
-print('Periodised payments model')
-print(data_periodised.head())
-
-## Periodised monthly payments ##
-data_monthly_subs = con.execute("SELECT * FROM int_monthly_subs").fetchdf()
-print('Monthly subs models')
-print(data_monthly_subs.head())
-
-## Periodised monthly payments with lead and lag payments##
-data_monthly_subs_leadlag = con.execute("SELECT * FROM int_monthly_subs_leadlag").fetchdf()
-print('Monthly subs models with lead and lag')
-print(data_monthly_subs_leadlag.head())
-
-
+### 1. Loading datasets and exporting as .csv ###
 ## MRR ##
 data_mrr = con.execute("SELECT * FROM metric_mrr").fetchdf()
 data_mrr.to_csv('./datasets/mrr.csv', index=False)
 print('MRR model')
 print(data_mrr.head())
-
 
 ## Churn ##
 data_churn = con.execute("SELECT * FROM metric_churn").fetchdf()
@@ -59,16 +31,19 @@ data_monthly_subs.to_csv('./datasets/monthly_subs.csv', index=False)
 print('Monthly subs')
 print(data_monthly_subs.head())
 
-
 ## Product upgrades and downgrades ##
 data_upgrades_downgrades = con.execute("SELECT * FROM metric_upgrades_downgrades").fetchdf()
 data_upgrades_downgrades.to_csv('./datasets/upgrades_downgrades.csv', index=False)
 print('Product Upgrades/Downgrades')
 print(data_upgrades_downgrades.head())
 
+con.close() #Closing Connection
+
+
 
 ### 2. Metric visualisations ###
-## MRR ##
+## 2.1 MRR ##
+#Preparing data
 data_mrr = data_mrr.groupby(['metric_month','billingCountry'])[['active_subscribers','mrr']].sum().reset_index()
 data_mrr_mrr = data_mrr.pivot(index='metric_month', columns='billingCountry', values='mrr')
 data_mrr_users = data_mrr.pivot(index='metric_month', columns='billingCountry', values='active_subscribers')
@@ -85,9 +60,11 @@ ax[0].set_ylabel('Monthly recurring revenue')
 ax[1].set_ylabel('Monthly subscribers')
 plt.suptitle('Monthly recurring revenue and subscribed users',fontsize=15)
 plt.tight_layout()
+#Saving
 plt.savefig('./images/mrr.png')
 
-## Churn ##
+## 2.2 Churn ##
+#Preparing data
 data_churn = data_churn.groupby(['churn_month'])[['starting_revenue','starting_customers','retained_revenue','retained_customers']].sum().reset_index()
 data_churn['value_retention']=data_churn['retained_revenue']/data_churn['starting_revenue']
 data_churn['volume_retention']=data_churn['retained_customers']/data_churn['starting_customers']
@@ -110,11 +87,12 @@ ax[0].set_title('Value Churn')
 ax[1].set_title('Volume Churn')
 a.yaxis.grid(True)
 plt.suptitle('Monthly churn rates',fontsize=15)
-
 plt.tight_layout()
+#Saving
 plt.savefig('./images/churn.png')
 
-## Acquisitions ##
+## 2.3 Acquisitions ##
+#Preparing data
 data_acquired = data_acquired.groupby(['metric_month'])[['customers_acquired','cancelled_customers','customer_base']].sum().reset_index()
 data_acquired['metric_month']=pd.to_datetime(data_acquired['metric_month'])
 #Plotting
@@ -126,14 +104,15 @@ ax.set_xlabel('')
 ax.set_ylabel('Number of customers')
 ax.set_title('Monthly customer acquisitions and cancellations')
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
-
 plt.tight_layout()
+#Saving
 plt.savefig('./images/acquisitions.png')
 
 
-## Subscription products and upgrades/downgrades##
+## 2.4 Subscription products and upgrades/downgrades##
 fig, ax = plt.subplots(figsize=[14,6], ncols=2, nrows=1)
-# Subs products #
+# 2.4.1 Subs products #
+#Preparing data
 data_monthly_subs = data_monthly_subs.groupby(['metric_month','product'])[['no_customers','mrr']].sum().reset_index()
 data_monthly_subs['metric_month']=pd.to_datetime(data_monthly_subs['metric_month'])
 data_product_proportions = data_monthly_subs.pivot_table(index='metric_month', columns='product', values='no_customers')
@@ -149,18 +128,20 @@ ax[0].stackplot(
 )
 ax_twin=ax[0].twinx()
 ax_twin.plot(data_arppu.index, data_arppu['arppu'],color='red')
+#Formatting
 ax_twin.set_ylabel('ARPPU')
 ax_twin.set_ylim(bottom=100, top=200)
-#Formatting
 ax[0].legend(loc='upper left')
 ax[0].xaxis.set_major_formatter(mdates.DateFormatter('%b %Y'))
 ax[0].tick_params(axis='x', labelrotation=30)
 ax[0].yaxis.set_major_formatter(PercentFormatter(1, decimals=0))
 ax[0].set_title('Distribution of monthly subscribers by product and ARPPU')
 
-# Subs products #
+# 2.4.2 Upgrades and downgrades #
+#Preparing data
 data_upgrades_downgrades = data_upgrades_downgrades.groupby(['metric_month','product_outcome'])[['no_customers']].sum().reset_index()
 data_upgrades_downgrades['metric_month']=pd.to_datetime(data_upgrades_downgrades['metric_month']).dt.strftime('%b %Y')
+#Plotting
 sns.barplot(data=data_upgrades_downgrades, x='metric_month', y='no_customers', hue='product_outcome', estimator='sum', ax=ax[1], palette=["green", "red"])
 #Formatting
 ax[1].set_xlabel('')
@@ -168,11 +149,6 @@ ax[1].tick_params(axis='x', labelrotation=90)
 ax[1].set_ylabel('No. of customers')
 ax[1].set_title('Monthly customers upgrading and downgrading products')
 ax[1].legend(title='')
-
 plt.tight_layout()
+#Saving
 plt.savefig('./images/products.png')
-
-
-
-
-con.close()
