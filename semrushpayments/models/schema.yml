@@ -131,4 +131,18 @@ models:
       - name: no_customers
         description: The number of customers that were subscribed in a month for a given product and country
       - name: mrr
-        description: The total periodised revenue in a month for a given product and country        
+        description: The total periodised revenue in a month for a given product and country    
+    
+  - name: metric_upgrades_downgrades
+    description: Metric model that tracks the number of customers that upgrade or downgrade their product tiers each month
+    columns:
+      - name: product_outcome
+        description: Takes the value of "Upgrade" or "Downgrade" to track both metrics in a long format
+        tests:
+          - not_null
+          - accepted_values:
+              values: ['Upgrade','Downgrade'] 
+      - name: no_customers
+        description: The number of customers upgrading or downgrading products on a given month   
+        tests:
+          - not_null
