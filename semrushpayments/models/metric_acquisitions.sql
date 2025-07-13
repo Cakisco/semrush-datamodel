@@ -34,5 +34,5 @@ ca.cancelled_customers,
 cu.customer_base
 FROM acquired a
 LEFT JOIN cancelled ca ON ca.metric_month = a.metric_month AND ca.product = a.product AND ca.billingCountry = a.billingCountry
-LEFT JOIN customerbase cu ON cu.metric_month = a.metric_month AND cu.product = a.product AND ca.billingCountry = a.billingCountry
+LEFT JOIN customerbase cu ON cu.metric_month = a.metric_month AND cu.product = a.product AND cu.billingCountry = a.billingCountry
 ORDER BY a.metric_month
